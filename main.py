@@ -1,5 +1,4 @@
 from flask import Flask, request,  jsonify, send_file, redirect
-import requests
 # from helper_file import Novels,convert,convert_novels
 from bill_helper import BillData, UnitData, UserData, WaterBill, BILLDATA_PATH, UNITDATA_PATH, USERDATA_PATH, WATERDATA_PATH, custom_print, edit_bill_units, getUsersWaterBill,get_apk_path
 from flask_cors import CORS

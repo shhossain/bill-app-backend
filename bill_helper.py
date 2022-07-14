@@ -1,4 +1,3 @@
-import imp
 import sqlite3
 from sys import platform
 import requests
