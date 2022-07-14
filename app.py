@@ -10,6 +10,8 @@ EXE_PATH = 'S:\\Code\\flutter\\electricbills\\build\windows\\runner\\Release\\el
 APK_UPDATE_IGNORE = '1.2.0'
 EXE_UPDATE_IGNORE = '1.2.0'
 
+LATEST_API_URL = 'https://bill.safayat.me'
+
 
 class Compare:
     small = 0
@@ -126,11 +128,13 @@ CORS(app)
 #         what=what, value=value, order=order, orderby=orderby, status=status, page=page, limit=limit)
 #     return jsonify(convert_novels(all_novels))
 
+@app.route("/latest_url")
+def latest_url():
+    return jsonify({"success": True, "url": LATEST_API_URL})
 
 @app.route("/")
 def home():
     return "Hello Word"
-
 
 # errors
 @app.errorhandler(404)
@@ -706,7 +710,7 @@ def download_apk(os):
     if os == 'windows' or os == 'exe':
         path = EXE_PATH
     # redirect to the file path
-    return redirect(path)
+    return jsonify({"url": path})
 
 
 # if __name__ == '__main__':
